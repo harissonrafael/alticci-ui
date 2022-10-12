@@ -1,0 +1,14 @@
+:host{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  padding: 1em;
+  background-color: lightgray;
+}
+
+main{
+  flex: 1;
+}

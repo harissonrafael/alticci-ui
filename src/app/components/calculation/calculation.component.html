@@ -1,0 +1,18 @@
+<section>
+  <h1>Make you calculation</h1>
+  <div id="calc-form">
+    <div class="form-field">
+      <label for="input">Type a number</label>
+      <input type="number" name="input" id="input" [(ngModel)]="input">
+    </div>
+    <div class="form-field">
+      <button (click)="calculate($event)">Calculate</button>
+    </div>
+  </div>
+  <div id="result-title">
+    Result
+  </div>
+  <div id="result">
+    {{result}}
+  </div>
+</section>
