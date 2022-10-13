@@ -31,8 +31,10 @@ h1{
 }
 
 #result{
+  max-width: 500px;
   border: 1px solid lightgray;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 0.5em;
   border-radius: 0.5rem;
+  word-wrap: break-word;
 }

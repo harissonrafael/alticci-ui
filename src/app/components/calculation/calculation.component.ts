@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-calculation',
@@ -11,7 +11,7 @@ export class CalculationComponent implements OnInit {
   readonly apiURL = 'http://localhost:8080';
   readonly resource = 'alticci';
 
-  result: Object = 0;
+  result: string = '0';
   input: number = 0;
 
   constructor(private http: HttpClient) {
@@ -21,13 +21,15 @@ export class CalculationComponent implements OnInit {
   }
 
   calculate(ev: any): void {
-    this.input = 0;
-    console.log("calculating...")
-
-    this.http.get(`${this.apiURL}/${this.resource}/` + this.input)
+    this.http.get(`${this.apiURL}/${this.resource}/` + this.input, {
+      headers: new HttpHeaders({
+        'Accept': 'text/html, application/xhtml+xml, */*',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }),
+      responseType: 'text'
+    })
       .subscribe(response => {
         this.result = response;
-        console.log("returning ", response);
       });
 
   }
